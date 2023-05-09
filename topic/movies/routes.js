@@ -6,8 +6,8 @@ const schemas = require("./schemas");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../../swagger.json");
 
-router.use("/api-docs", swaggerUi.serve);
-router.get("/api-docs", swaggerUi.setup(swaggerDocument));
+router.use("/", swaggerUi.serve);
+router.get("/", swaggerUi.setup(swaggerDocument));
 
 /* GET METHODS */
 
