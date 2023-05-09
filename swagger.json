@@ -1,0 +1,213 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger R2D2",
+    "description": "Our Repository:\n- [The R2D2 repository](https://github.com/Iniciativa-Padawan/r2d2-coruscant/tree/paulinho)",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "movies",
+      "description": "Everything about Star Wars Movies"
+    }
+  ],
+  "paths": {
+    "/movies": {
+      "get": {
+        "tags": ["movies"],
+        "summary": "Finds Movies",
+        "description": "Find All Movies",
+        "operationId": "getMovies",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/movies"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Movie not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["movies"],
+        "summary": "Add a new movie",
+        "description": "Add a new movie",
+        "operationId": "createMovie",
+        "requestBody": {
+          "description": "Create a new movie",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/movies"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/movies"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/movies/{movieId}": {
+      "get": {
+        "tags": ["movies"],
+        "summary": "Find movie by ID",
+        "description": "Returns a single movie",
+        "operationId": "getMovieById",
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "description": "ID of movie to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/movies"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Movie not found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["movies"],
+        "summary": "Update an existing movie",
+        "description": "Update an existing movie by Id",
+        "operationId": "updateMovie",
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "description": "ID of movie to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent movie",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/movies"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/movies"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Movie not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["movies"],
+        "summary": "Deletes a movie",
+        "description": "delete a movie",
+        "operationId": "deleteMovie",
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "description": "Movie id to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid movie value"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "movies": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "asduiha321uhi3ug12"
+          },
+          "name": {
+            "type": "string",
+            "example": "A New Hope"
+          },
+          "year": {
+            "type": "integer",
+            "example": 1977
+          },
+          "sequential": {
+            "type": "integer",
+            "example": 4
+          },
+          "trilogy": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
