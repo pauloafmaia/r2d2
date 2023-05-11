@@ -26,7 +26,7 @@ const movieSchema = () =>
         errorMessage: "Trilogy is required",
       },
     },
-    image: {
+    img: {
       isEmpty: {
         negated: true,
         errorMessage: "Image URL is required",
