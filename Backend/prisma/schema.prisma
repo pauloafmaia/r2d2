@@ -16,4 +16,5 @@ model Movie {
   year        Int
   sequential  Int
   trilogy     String
+  image       String
 }
