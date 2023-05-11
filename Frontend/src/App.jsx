@@ -93,7 +93,7 @@ function App() {
   // const [movies, setMovies] = useState([]);
 
   // useEffect(() => {
-  //   fetch("https://r10d10.onrender.com/#/movies/getMovies").then((response) => {
+  //   fetch("https://r10d10.onrender.com/movies").then((response) => {
   //     response.json().then((json) => setMovies(json));
   //   });
   // }, []);

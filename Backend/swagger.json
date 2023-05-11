@@ -187,24 +187,20 @@
       "movies": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "example": "asduiha321uhi3ug12"
-          },
           "name": {
-            "type": "string",
             "example": "A New Hope"
           },
           "year": {
-            "type": "integer",
-            "example": 1977
+            "example": "1977"
           },
           "sequential": {
-            "type": "integer",
-            "example": 4
+            "example": "4"
           },
           "trilogy": {
-            "type": "string"
+            "example": "Classic"
+          },
+          "image": {
+            "example": "https://lumiere-a.akamaihd.net/v1/images/EP4_POS_2_D-RESIZED_f977074a.jpeg"
           }
         }
       }
