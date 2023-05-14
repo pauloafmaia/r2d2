@@ -20,7 +20,7 @@
     "/movies": {
       "get": {
         "tags": ["movies"],
-        "summary": "Finds Movies",
+        "summary": "Find All Movies",
         "description": "Find All Movies",
         "operationId": "getMovies",
         "responses": {
@@ -199,7 +199,7 @@
           "trilogy": {
             "example": "Classic - Spin-off - Prequel - Sequel"
           },
-          "img": {
+          "image": {
             "example": "URL"
           }
         }

@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T22:57:56.936Z",
-    "modified": "2023-05-11T05:28:05.719Z",
+    "modified": "2023-05-14T03:48:23.582Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n     \"name\": \"Attack of the Clones\",\n    \"year\": 2002,\n    \"sequential\": 2,\n    \"trilogy\": \"Prequel\",\n    \"img\": \"https://lumiere-a.akamaihd.net/v1/images/EP2-IA-69221-RESIZED_1e8e0971.jpeg\",\n  \n}",
+      "raw": "  {\r\n    \"name\": \"Solo\",\r\n    \"year\": 2018,\r\n    \"sequential\": 11,\r\n    \"trilogy\": \"Spin-off\",\r\n    \"img\": \"https://lumiere-a.akamaihd.net/v1/images/solo-theatrical-poster_f98a86eb_62fc4b3c.jpeg\"\r\n  }",
       "form": []
     },
     "tests": []
