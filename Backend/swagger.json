@@ -197,10 +197,10 @@
             "example": "4"
           },
           "trilogy": {
-            "example": "Classic"
+            "example": "Classic - Spin-off - Prequel - Sequel"
           },
-          "image": {
-            "example": "https://lumiere-a.akamaihd.net/v1/images/EP4_POS_2_D-RESIZED_f977074a.jpeg"
+          "img": {
+            "example": "URL"
           }
         }
       }
