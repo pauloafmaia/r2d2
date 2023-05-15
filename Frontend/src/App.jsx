@@ -12,15 +12,19 @@ function App() {
 
   return (
     <>
-      <div className="p-4 flex justify-center items-center flex-wrap w-{100%}">
+      <div className="p-4 flex justify-center items-center flex-wrap w-full">
+        <div className="pt-3 pb-2 bg-dark-grey w-full text-center">
+          <h1 className="text-white text-xl uppercase">
+            You can find everything about Star Wars movies here
+          </h1>
+        </div>
         <ul className="flex flex-wrap gap-10">
           {movies.map((item) => (
             <li key={item.id}>
-              <span className="w-52 h-{350px} flex flex-col p-20 justify-center items-center m-2 px-3 py-1 bg-transparent rounded-lg cursor-pointer text-sm font-semibold">
+              <span className="hover:bg-gray-700 w-52 h-{350  px} flex flex-col p-10 justify-center items-center m-2 px-3 py-1 bg-transparent rounded-lg cursor-pointer text-sm font-semibold">
                 <span className="p-1">
-                  <img src={item.img} alt="images" className="rounded h-48" />
+                  <img src={item.image} alt="images" className="rounded h-48" />
                 </span>
-                <span className="text-white text-left">----</span>
                 <span className="p-1 rounded-lg text-center text-white">
                   {item.name}
                 </span>
