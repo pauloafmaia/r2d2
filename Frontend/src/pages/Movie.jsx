@@ -63,12 +63,17 @@ function Movie() {
           </h1>
         </div>
         <div className="">
+          <h1 className="text-[20px] font-bold text-white">
+            {movie.year}
+          </h1>
+        </div>
+        <div className="">
           <h1 className="text-[20px] font-bold text-white">{movie.synopsis}</h1>
         </div>
       </div>
-      <footer className="bg-slate-900 m-4 text-center text-white">
-        Star Wars API
-      </footer>
+      <div className="w-full bg-dark-grey text-center text-white">
+        <footer>Star Wars API | R2D2 ©</footer>
+      </div>
     </>
   );
 }

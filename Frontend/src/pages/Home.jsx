@@ -84,9 +84,6 @@ function Home() {
                   <span className="p-1 rounded-lg text-center text-white">
                     {item.name}
                   </span>
-                  <span className="p-1 rounded-lg text-center text-white">
-                    {item.year}
-                  </span>
                   <Badge trilogy={item.trilogy} />
                 </span>
               </li>
