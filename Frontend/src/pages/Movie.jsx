@@ -31,24 +31,22 @@ function Movie() {
           }}
         />
       </div>
-      <div className="p-3 w-full bg-dark-grey text-center text-white">
+      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
         <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-          <h1 className="text-white text-xl uppercase">
-            All of your star wars movies now streaming on disney +
-          </h1>
+          <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
         </Link>
       </div>
       <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
         <Icon
+          id="back"
           className="cursor-pointer w-[50px] h-[50px]"
           onClick={() => {
             navigate("/");
           }}
           icon="material-symbols:arrow-back"
         />
-        <label htmlFor="">Return to movies</label>
       </div>
-      <div className="opacity-70 pb-10">
+      <div className="opacity-70 pb-10 w-auto h-auto">
         <img src={movie.image2} alt="" />
       </div>
       <div className="grid grid-cols-2 w-full pb-10">
@@ -66,21 +64,54 @@ function Movie() {
           <h1 className="text-[15px] text-white">
             Genre: Action, Adventure, Science Fiction
           </h1>
+          <h1 className="text-[20px] font-bold text-white pt-5 pb-5">
+            Trilogy: <Badge trilogy={movie.trilogy} />
+          </h1>
           <h1 className="text-[15px] font-bold text-white pt-5">
             {movie.synopsis}
           </h1>
-          <video
+          <iframe
+            className="pt-10 w-[600px] h-[400px]"
             src={movie.trailer}
-            className="w-[320px] h-[240px]"
-            autoPlay
-            muted
-          ></video>
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
       <div className="w-full bg-dark-grey text-center text-white">
         <footer>Star Wars API | R2D2 ©</footer>
       </div>
     </>
+  );
+}
+
+// eslint-disable-next-line react/prop-types
+function Badge({ trilogy }) {
+  let cor = "white";
+
+  switch (trilogy) {
+    case "Classic":
+      cor = "red";
+      break;
+    case "Prequel":
+      cor = "blue";
+      break;
+    case "Sequel":
+      cor = "yellow";
+      break;
+    case "Spin-off":
+      cor = "green";
+      break;
+
+    default:
+      break;
+  }
+
+  return (
+    <span className={`text-white italic bg-${cor}-600 rounded-lg p-2`}>
+      {trilogy}
+    </span>
   );
 }
 

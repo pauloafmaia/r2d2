@@ -26,11 +26,9 @@ function Home() {
           }}
         />
       </div>
-      <div className="p-3 w-full bg-dark-grey text-center text-white">
+      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
         <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-          <h1 className="text-white text-xl uppercase">
-            All of your star wars movies now streaming on disney +
-          </h1>
+          <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
         </Link>
       </div>
       <div className="p-4 flex justify-center items-center flex-wrap w-full">
@@ -81,10 +79,9 @@ function Home() {
                       className="rounded h-48"
                     />
                   </span>
-                  <span className="p-1 rounded-lg text-center text-white pb-5">
+                  <span className="text-[15px] p-1 rounded-lg text-center text-white pb-5">
                     {item.name} ({item.sequential})
                   </span>
-                  <Badge trilogy={item.trilogy} />
                 </span>
               </li>
             </Link>
@@ -95,34 +92,6 @@ function Home() {
         <footer>Star Wars API | R2D2 ©</footer>
       </div>
     </>
-  );
-}
-
-function Badge({ trilogy }) {
-  let cor = "white";
-
-  switch (trilogy) {
-    case "Classic":
-      cor = "red";
-      break;
-    case "Prequel":
-      cor = "blue";
-      break;
-    case "Sequel":
-      cor = "yellow";
-      break;
-    case "Spin-off":
-      cor = "green";
-      break;
-
-    default:
-      break;
-  }
-
-  return (
-    <span className={`text-white italic bg-${cor}-600 rounded-lg p-2`}>
-      {trilogy}
-    </span>
   );
 }
 
