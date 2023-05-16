@@ -201,6 +201,9 @@
           },
           "image": {
             "example": "URL"
+          },
+          "synopsis": {
+            "example": "Text"
           }
         }
       }

@@ -14,4 +14,5 @@ model Movie {
   sequential Int
   trilogy    String
   image      String
+  synopsis   String?
 }
