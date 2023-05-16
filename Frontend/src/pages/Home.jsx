@@ -81,8 +81,8 @@ function Home() {
                       className="rounded h-48"
                     />
                   </span>
-                  <span className="p-1 rounded-lg text-center text-white">
-                    {item.name}
+                  <span className="p-1 rounded-lg text-center text-white pb-5">
+                    {item.name} ({item.sequential})
                   </span>
                   <Badge trilogy={item.trilogy} />
                 </span>

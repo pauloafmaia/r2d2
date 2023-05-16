@@ -69,6 +69,12 @@ function Movie() {
           <h1 className="text-[15px] font-bold text-white pt-5">
             {movie.synopsis}
           </h1>
+          <video
+            src={movie.trailer}
+            className="w-[320px] h-[240px]"
+            autoPlay
+            muted
+          ></video>
         </div>
       </div>
       <div className="w-full bg-dark-grey text-center text-white">

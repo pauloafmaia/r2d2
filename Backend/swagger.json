@@ -202,8 +202,14 @@
           "image": {
             "example": "URL"
           },
+          "image2": {
+            "example": "URL"
+          },
           "synopsis": {
             "example": "Text"
+          },
+          "trailer": {
+            "example": "URL"
           }
         }
       }
