@@ -11,7 +11,7 @@ model Movie {
   id         String @id @default(cuid())
   name       String
   year       Int
-  sequential Int
+  sequential String?
   trilogy    String
   image      String
   synopsis   String?

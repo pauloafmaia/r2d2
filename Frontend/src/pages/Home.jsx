@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center pt-6">
+      <div className="w-full flex justify-center items-center pt-6 pb-6">
         <img
           src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254"
           alt=""
@@ -26,16 +26,16 @@ function Home() {
           }}
         />
       </div>
+      <div className="p-3 w-full bg-dark-grey text-center text-white">
+        <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
+          <h1 className="text-white text-xl uppercase">
+            All of your star wars movies now streaming on disney +
+          </h1>
+        </Link>
+      </div>
       <div className="p-4 flex justify-center items-center flex-wrap w-full">
-        <div className="pt-3 pb-2 bg-dark-grey w-full text-center">
-          <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-            <h1 className="text-white text-xl uppercase">
-              All of your star wars movies now streaming on disney +
-            </h1>
-          </Link>
-        </div>
         <div className="w-full flex items-start p-5 justify-center">
-          <label className="pt-2" htmlFor="add">
+          <label className="pt-2 text-white" htmlFor="add">
             ADD MOVIE
           </label>
           <Icon
@@ -46,22 +46,22 @@ function Home() {
             }}
             icon="material-symbols:add"
           />
-          <label className="pt-2" htmlFor="edit">
+          <label className="pt-2 text-white" htmlFor="edit">
             EDIT MOVIE
           </label>
           <Icon
-            id="add"
+            id="edit"
             className="cursor-pointer w-[30px] h-[30px] text-white pt-2"
             onClick={() => {
               navigate("/create");
             }}
             icon="material-symbols:edit"
           />
-          <label className="pt-2" htmlFor="delete">
+          <label className="pt-2 text-white" htmlFor="delete">
             DELETE MOVIE
           </label>
           <Icon
-            id="add"
+            id="delete"
             className="cursor-pointer w-[40px] h-[40px] text-white"
             onClick={() => {
               navigate("/create");
@@ -87,9 +87,6 @@ function Home() {
                   <span className="p-1 rounded-lg text-center text-white">
                     {item.year}
                   </span>
-                  <span className="p-1 rounded-lg text-center text-white">
-                    Sequential: {item.sequential}
-                  </span>
                   <Badge trilogy={item.trilogy} />
                 </span>
               </li>
@@ -97,9 +94,9 @@ function Home() {
           ))}
         </ul>
       </div>
-      <footer className="bg-slate-900 m-4 text-center text-white">
-        Star Wars API | R2D2
-      </footer>
+      <div className="w-full bg-dark-grey text-center text-white">
+        <footer>Star Wars API | R2D2 ©</footer>
+      </div>
     </>
   );
 }

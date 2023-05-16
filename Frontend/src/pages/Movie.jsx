@@ -40,18 +40,31 @@ function Movie() {
           </Link>
         </div>
       </div>
-      <Icon
-        className="cursor-pointer w-[50px] h-[50px]"
-        onClick={() => {
-          navigate("/");
-        }}
-        icon="material-symbols:arrow-back"
-      />
-      <div className="flex justify-center">
-        <img className="w-[400px] h-[600px]" src={movie.image} alt="" />
+      <div>
+        <label htmlFor="">Return to movies</label>
+        <Icon
+          className="cursor-pointer w-[50px] h-[50px]"
+          onClick={() => {
+            navigate("/");
+          }}
+          icon="material-symbols:arrow-back"
+        />
       </div>
-      <div className="">
-        <h1 className="text-[50px] font-bold text-white">{movie.name}</h1>
+      <div className="w-screen">
+        <div className="flex justify-center">
+          <img className="w-[400px] h-[600px]" src={movie.image} alt="" />
+        </div>
+        <div className="">
+          <h1 className="text-[50px] font-bold text-white">{movie.name}</h1>
+        </div>
+        <div className="">
+          <h1 className="text-[40px] font-bold text-white">
+            {movie.sequential}
+          </h1>
+        </div>
+        <div className="">
+          <h1 className="text-[20px] font-bold text-white">{movie.synopsis}</h1>
+        </div>
       </div>
       <footer className="bg-slate-900 m-4 text-center text-white">
         Star Wars API
