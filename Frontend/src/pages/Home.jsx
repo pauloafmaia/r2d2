@@ -34,13 +34,39 @@ function Home() {
             </h1>
           </Link>
         </div>
-        <div className="w-full flex items-start p-5">
+        <div className="w-full flex items-start p-5 justify-center">
+          <label className="pt-2" htmlFor="add">
+            ADD MOVIE
+          </label>
           <Icon
+            id="add"
             className="cursor-pointer w-[40px] h-[40px] text-white"
             onClick={() => {
               navigate("/create");
             }}
             icon="material-symbols:add"
+          />
+          <label className="pt-2" htmlFor="edit">
+            EDIT MOVIE
+          </label>
+          <Icon
+            id="add"
+            className="cursor-pointer w-[30px] h-[30px] text-white pt-2"
+            onClick={() => {
+              navigate("/create");
+            }}
+            icon="material-symbols:edit"
+          />
+          <label className="pt-2" htmlFor="delete">
+            DELETE MOVIE
+          </label>
+          <Icon
+            id="add"
+            className="cursor-pointer w-[40px] h-[40px] text-white"
+            onClick={() => {
+              navigate("/create");
+            }}
+            icon="material-symbols:remove"
           />
         </div>
         <ul className="flex flex-wrap gap-10">
@@ -71,8 +97,8 @@ function Home() {
           ))}
         </ul>
       </div>
-      <footer className="rounded-lg shadow dark:bg-black m-4 text-center text-white">
-        Star Wars API
+      <footer className="bg-slate-900 m-4 text-center text-white">
+        Star Wars API | R2D2
       </footer>
     </>
   );
