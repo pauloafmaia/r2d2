@@ -38,7 +38,7 @@ function Home() {
           </label>
           <Icon
             id="add"
-            className="cursor-pointer w-[40px] h-[40px] text-white"
+            className="cursor-pointer w-[30px] h-[30px] text-white pt-2"
             onClick={() => {
               navigate("/create");
             }}
@@ -51,20 +51,9 @@ function Home() {
             id="edit"
             className="cursor-pointer w-[30px] h-[30px] text-white pt-2"
             onClick={() => {
-              navigate("/create");
+              navigate("/update");
             }}
             icon="material-symbols:edit"
-          />
-          <label className="pt-2 text-white" htmlFor="delete">
-            DELETE MOVIE
-          </label>
-          <Icon
-            id="delete"
-            className="cursor-pointer w-[40px] h-[40px] text-white"
-            onClick={() => {
-              navigate("/create");
-            }}
-            icon="material-symbols:remove"
           />
         </div>
         <ul className="flex flex-wrap gap-10">

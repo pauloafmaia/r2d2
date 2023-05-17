@@ -1,42 +1,29 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Create() {
-  const notifyFailed = () => {
-    toast.error("we have some error creating your movie", {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 2000,
-    });
-  };
-  // const notifySuccess = () => {
-  //   toast.success("Movie created!", {
-  //     position: toast.POSITION.TOP_RIGHT,
-  //     autoClose: 2000,
-  //   });
-  // };
-
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data) => {
-    console.log(data);
-    const response = await fetch("https://r10d10.onrender.com/movies", {
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    });
-
-    if (response.status == 201) {
-      navigate("/");
+  const onSubmit = async (data, id) => {
+    if (id) {
+      const response = await fetch(`https://r10d10.onrender.com/movies/${id}`, {
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        method: "PUT",
+      });
+      if (response.status == 200) navigate("/");
     } else {
-      notifyFailed();
+      const response = await fetch("https://r10d10.onrender.com/movies", {
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      if (response.status == 201) navigate("/");
     }
-
-    console.log(response);
   };
 
   const navigate = useNavigate();
@@ -75,7 +62,6 @@ function Create() {
         {errors.name && (
           <span className="text-red-600">{errors.name.message}</span>
         )}
-
         <input
           className={`rounded-lg p-2 w-full ${
             errors.year && "outline outline-2 outline-red-600"
@@ -93,7 +79,6 @@ function Create() {
         {errors.name && (
           <span className="text-red-600">{errors.year.message}</span>
         )}
-
         <input
           className={`rounded-lg p-2 w-full ${
             errors.sequential && "outline outline-2 outline-red-600"
@@ -105,7 +90,6 @@ function Create() {
         {errors.sequential && (
           <span className="text-red-600">{errors.sequential.message}</span>
         )}
-
         <select
           className={`rounded-lg p-2 w-full ${
             errors.trilogy && "outline outline-2 outline-red-600"
@@ -122,7 +106,6 @@ function Create() {
         {errors.trilogy && (
           <span className="text-red-600">{errors.trilogy.message}</span>
         )}
-
         <input
           className={`rounded-lg p-2 w-full ${
             errors.image && "outline outline-2 outline-red-600"
@@ -134,7 +117,6 @@ function Create() {
         {errors.image && (
           <span className="text-red-600">{errors.image.message}</span>
         )}
-
         <input
           className={`rounded-lg p-2 w-full ${
             errors.image2 && "outline outline-2 outline-red-600"
@@ -146,7 +128,6 @@ function Create() {
         {errors.image2 && (
           <span className="text-red-600">{errors.image2.message}</span>
         )}
-
         <input
           className={`rounded-lg p-2 w-full ${
             errors.synopsis && "outline outline-2 outline-red-600"
@@ -159,7 +140,6 @@ function Create() {
         {errors.synopsis && (
           <span className="text-red-600">{errors.synopsis.message}</span>
         )}
-
         <input
           className={`rounded-lg p-2 w-full ${
             errors.trailer && "outline outline-2 outline-red-600"
@@ -171,18 +151,18 @@ function Create() {
         {errors.trailer && (
           <span className="text-red-600">{errors.trailer.message}</span>
         )}
-
-        <input
-          className="bg-black text-white w-full rounded border-solid border-2 border-white p-2 hover:bg-zinc-800 cursor-pointer mt-10 mb-10"
+        <button
           type="submit"
-        />
+          className="bg-black text-white w-full rounded border-solid border-2
+        border-white p-2 hover:bg-zinc-800 cursor-pointer mt-10 mb-10"
+        >
+          {id ? "UPDATE" : "CREATE"}
+        </button>
       </form>
 
       <div className="w-full bg-dark-grey text-center text-white cursor-pointer">
         <footer>Star Wars API | R2D2 ©</footer>
       </div>
-
-      <ToastContainer />
     </>
   );
 }
