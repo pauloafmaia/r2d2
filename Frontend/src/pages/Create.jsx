@@ -1,28 +1,28 @@
+import { Icon } from "@iconify/react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Create() {
-  const { id } = useParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data, id) => {
-    if (id) {
-      const response = await fetch(`https://r10d10.onrender.com/movies/${id}`, {
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-        method: "PUT",
-      });
-      if (response.status == 200) navigate("/");
+  const onSubmit = async (data) => {
+    const response = await fetch("https://r10d10.onrender.com/movies", {
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    });
+    if (response.status == 201) {
+      navigate("/");
     } else {
-      const response = await fetch("https://r10d10.onrender.com/movies", {
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-      });
-      if (response.status == 201) navigate("/");
+      <div
+        className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <span className="font-medium">Sorry! Cannot create this movie</span>
+      </div>;
     }
   };
 
@@ -44,6 +44,16 @@ function Create() {
         <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
           <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
         </Link>
+      </div>
+      <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
+        <Icon
+          id="back"
+          className="cursor-pointer w-[50px] h-[50px]"
+          onClick={() => {
+            navigate("/");
+          }}
+          icon="material-symbols:arrow-back"
+        />
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -156,7 +166,7 @@ function Create() {
           className="bg-black text-white w-full rounded border-solid border-2
         border-white p-2 hover:bg-zinc-800 cursor-pointer mt-10 mb-10"
         >
-          {id ? "UPDATE" : "CREATE"}
+          CREATE
         </button>
       </form>
 

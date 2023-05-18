@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -33,28 +32,25 @@ function Home() {
       </div>
       <div className="p-4 flex justify-center items-center flex-wrap w-full">
         <div className="w-full flex items-start p-5 justify-center">
-          <label className="pt-2 text-white" htmlFor="add">
-            ADD MOVIE
-          </label>
-          <Icon
-            id="add"
-            className="cursor-pointer w-[30px] h-[30px] text-white pt-2"
+          <button
+            type="button"
             onClick={() => {
               navigate("/create");
             }}
-            icon="material-symbols:add"
-          />
-          <label className="pt-2 text-white" htmlFor="edit">
-            EDIT MOVIE
-          </label>
-          <Icon
-            id="edit"
-            className="cursor-pointer w-[30px] h-[30px] text-white pt-2"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
+          >
+            CREATE MOVIE
+          </button>
+
+          <button
+            type="button"
             onClick={() => {
-              navigate("/update");
+              navigate("/edit");
             }}
-            icon="material-symbols:edit"
-          />
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
+          >
+            EDIT MOVIE
+          </button>
         </div>
         <ul className="flex flex-wrap gap-10">
           {movies.map((item) => (

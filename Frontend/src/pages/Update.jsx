@@ -1,28 +1,42 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Update() {
-  const navigate = useNavigate();
-  const [movies, setMovies] = useState([]);
+  const { id } = useParams();
+  const [movie, setMovie] = useState([]);
 
-  const deleteMovie = async (id) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
     const response = await fetch(`https://r10d10.onrender.com/movies/${id}`, {
-      method: "DELETE",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      method: "PUT",
     });
-
-    if (response.status == 200) window.location.reload();
-  };
-
-  const editMovie = async (id) => {
-    navigate(`/create/${id}`);
+    if (response.status == 200) {
+      navigate("/edit");
+    } else {
+      <div
+        className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <span className="font-medium">Sorry! Cannot update this movie</span>
+      </div>;
+    }
   };
 
   useEffect(() => {
-    fetch("https://r10d10.onrender.com/movies").then((response) => {
-      response.json().then((json) => setMovies(json));
+    fetch(`https://r10d10.onrender.com/movies/${id}`).then((response) => {
+      response.json().then((json) => setMovie(json));
     });
-  }, []);
+  }, [id]);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -46,59 +60,135 @@ function Update() {
           id="back"
           className="cursor-pointer w-[50px] h-[50px]"
           onClick={() => {
-            navigate("/");
+            navigate("/edit");
           }}
           icon="material-symbols:arrow-back"
         />
       </div>
-      <div className="flex items-center h-full pb-10 pt-10 justify-center">
-        <table className="w-1/2 text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Sequential
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Year
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {movies.map((movie) => (
-              <>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="px-6 py-4">{movie.name}</td>
-                  <td className="px-6 py-4">{movie.sequential}</td>
-                  <td className="px-6 py-4">{movie.year}</td>
-                  <td className="px-6 py-4">
-                    <button
-                      type="button"
-                      className="mr-4 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-                      onClick={() => editMovie(movie.id)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      type="button"
-                      className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                      onClick={() => deleteMovie(movie.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="w-full bg-dark-grey text-center text-white">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex h-auto relative flex-col justify-center items-center gap-4 max-w-screen-sm m-auto p-10"
+      >
+        <input
+          // value={movie.name}
+          placeholder="Name"
+          className={`rounded-lg p-2 w-full ${
+            errors.name && "outline outline-2 outline-red-600"
+          }`}
+          id="name"
+          {...register("name", {
+            required: "Name is required",
+          })}
+        />
+        {errors.name && (
+          <span className="text-red-600">{errors.name.message}</span>
+        )}
+        <input
+          className={`rounded-lg p-2 w-full ${
+            errors.year && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Year"
+          // value={movie.year}
+          type="number"
+          id="year"
+          {...register("year", {
+            valueAsNumber: true,
+            required: "Year is required",
+            min: 1900,
+            max: 2100,
+          })}
+        />
+        {errors.name && (
+          <span className="text-red-600">{errors.year.message}</span>
+        )}
+        <input
+          className={`rounded-lg p-2 w-full ${
+            errors.sequential && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Sequential"
+          // value={movie.sequential}
+          id="sequential"
+          {...register("sequential", { required: "Sequential is required" })}
+        />
+        {errors.sequential && (
+          <span className="text-red-600">{errors.sequential.message}</span>
+        )}
+        <select
+          className={`rounded-lg p-2 w-full ${
+            errors.trilogy && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Trilogy"
+          // value={movie.trilogy}
+          id="trilogy"
+          {...register("trilogy", { required: "Trilogy is required" })}
+        >
+          <option value="Classic">Classic</option>
+          <option value="Prequel">Prequel</option>
+          <option value="Sequel">Sequel</option>
+          <option value="Spin-Off">Spin-Off</option>
+        </select>
+        {errors.trilogy && (
+          <span className="text-red-600">{errors.trilogy.message}</span>
+        )}
+        <input
+          className={`rounded-lg p-2 w-full ${
+            errors.image && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Image URL"
+          // value={movie.image}
+          id="image"
+          {...register("image", { required: "Image URL is required" })}
+        />
+        {errors.image && (
+          <span className="text-red-600">{errors.image.message}</span>
+        )}
+        <input
+          className={`rounded-lg p-2 w-full ${
+            errors.image2 && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Image 2 URL"
+          // value={movie.image2}
+          id="image2"
+          {...register("image2", { required: "Image 2 URL is required" })}
+        />
+        {errors.image2 && (
+          <span className="text-red-600">{errors.image2.message}</span>
+        )}
+        <input
+          className={`rounded-lg p-2 w-full ${
+            errors.synopsis && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Synopsis"
+          // value={movie.synopsis}
+          type="text"
+          id="synopsis"
+          {...register("synopsis", { required: "Synopsis is required" })}
+        />
+        {errors.synopsis && (
+          <span className="text-red-600">{errors.synopsis.message}</span>
+        )}
+        <input
+          className={`rounded-lg p-2 w-full ${
+            errors.trailer && "outline outline-2 outline-red-600"
+          }`}
+          placeholder="Trailer"
+          // value={movie.trailer}
+          id="trailer"
+          {...register("trailer", { required: "Trailer is required" })}
+        />
+        {errors.trailer && (
+          <span className="text-red-600">{errors.trailer.message}</span>
+        )}
+        <button
+          type="submit"
+          className="bg-black text-white w-full rounded border-solid border-2
+        border-white p-2 hover:bg-zinc-800 cursor-pointer mt-10 mb-10"
+        >
+          UPDATE
+        </button>
+      </form>
+
+      <div className="w-full bg-dark-grey text-center text-white cursor-pointer">
         <footer>Star Wars API | R2D2 ©</footer>
       </div>
     </>
