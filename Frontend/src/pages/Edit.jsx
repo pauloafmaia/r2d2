@@ -55,8 +55,8 @@ function Edit() {
           icon="material-symbols:arrow-back"
         />
       </div>
-      <div className="flex items-center h-full pb-10 pt-10 justify-center">
-        <table className="w-1/2 text-sm text-left text-gray-500 dark:text-gray-400">
+      <div className="flex items-center h-full pb-10 pt-10 justify-center w-full">
+        <table className="w-full md:w-1/2 text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
