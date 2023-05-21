@@ -5,6 +5,11 @@ import { useNavigate } from "react-router-dom";
 function Edit() {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
+  const loadMovies = () => {
+    fetch("https://r10d10.onrender.com/movies").then((response) => {
+      response.json().then((json) => setMovies(json));
+    });
+  };
 
   const deleteMovie = async (id) => {
     const response = await fetch(`https://r10d10.onrender.com/movies/${id}`, {
@@ -12,7 +17,7 @@ function Edit() {
     });
 
     if (response.status == 200) {
-      navigate("/edit");
+      loadMovies();
     } else {
       <div
         className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
@@ -36,14 +41,19 @@ function Edit() {
   return (
     <>
       <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
-        <Icon
-          id="back"
-          className="cursor-pointer w-[50px] h-[50px]"
-          onClick={() => {
-            navigate("/");
-          }}
-          icon="material-symbols:arrow-back"
-        />
+        <button
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
+        >
+          <Icon
+            id="back"
+            className="cursor-pointer w-[20px] h-[20px]"
+            onClick={() => {
+              navigate("/");
+            }}
+            icon="material-symbols:arrow-back"
+          />
+        </button>
       </div>
       <div className="flex items-center h-full pb-10 pt-10 justify-center w-full">
         <table className="w-full md:w-1/2 text-sm text-left text-gray-500 dark:text-gray-400">
@@ -65,7 +75,7 @@ function Edit() {
                   <td className="px-6 py-4">
                     <button
                       type="button"
-                      className="mr-4 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                      className="mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                       onClick={() => editMovie(movie.id)}
                     >
                       Edit
