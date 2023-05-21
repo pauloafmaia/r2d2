@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Icon } from "@iconify/react";
+import { useParams } from "react-router-dom";
 
 Movie.propTypes = {
   id: String,
@@ -8,8 +7,6 @@ Movie.propTypes = {
 
 function Movie() {
   const { id } = useParams();
-
-  const navigate = useNavigate();
 
   const [movie, setMovie] = useState([]);
 
@@ -21,17 +18,7 @@ function Movie() {
 
   return (
     <>
-      <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
-        <Icon
-          id="back"
-          className="cursor-pointer w-[50px] h-[50px]"
-          onClick={() => {
-            navigate("/");
-          }}
-          icon="material-symbols:arrow-back"
-        />
-      </div>
-      <div className="opacity-70 pb-10 w-auto h-auto">
+      <div className="opacity-70 pb-10 w-auto h-auto md:pt-5 pt-5">
         <img src={movie.image2} alt="" />
       </div>
       <div className="md:grid md:grid-cols-2 w-auto h-auto pb-10">

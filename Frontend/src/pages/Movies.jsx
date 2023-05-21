@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Home() {
+function Movies() {
   const [movies, setMovies] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://r10d10.onrender.com/movies").then((response) => {
@@ -16,27 +14,6 @@ function Home() {
   return (
     <>
       <div className="p-4 flex justify-center items-center flex-wrap w-full">
-        <div className="w-full flex items-start p-5 justify-center">
-          <button
-            type="button"
-            onClick={() => {
-              navigate("/create");
-            }}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
-          >
-            CREATE MOVIE
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              navigate("/edit");
-            }}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
-          >
-            EDIT MOVIE
-          </button>
-        </div>
         <ul className="flex flex-col md:flex-row md:flex-wrap gap-10 md:justify-center">
           {movies.map((item) => (
             <Link key={item.id} to={item.id}>
@@ -62,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Movies;

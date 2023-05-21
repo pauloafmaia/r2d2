@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -40,21 +39,6 @@ function Edit() {
 
   return (
     <>
-      <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
-        <button
-          type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
-        >
-          <Icon
-            id="back"
-            className="cursor-pointer w-[20px] h-[20px]"
-            onClick={() => {
-              navigate("/");
-            }}
-            icon="material-symbols:arrow-back"
-          />
-        </button>
-      </div>
       <div className="flex items-center h-full pb-10 pt-10 justify-center w-full">
         <table className="w-full md:w-1/2 text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -82,8 +66,8 @@ function Edit() {
                     </button>
                     <button
                       type="button"
-                      className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                       onClick={() => deleteMovie(movie.id)}
+                      className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                     >
                       Delete
                     </button>

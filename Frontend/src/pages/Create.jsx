@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -30,21 +29,6 @@ function Create() {
 
   return (
     <>
-      <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
-        <button
-          type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex justify-center"
-        >
-          <Icon
-            id="back"
-            className="cursor-pointer w-[20px] h-[20px]"
-            onClick={() => {
-              navigate("/");
-            }}
-            icon="material-symbols:arrow-back"
-          />
-        </button>
-      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex h-auto relative flex-col justify-center items-center gap-4 max-w-screen-sm m-auto p-10"
