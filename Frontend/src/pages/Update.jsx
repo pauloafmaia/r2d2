@@ -1,11 +1,9 @@
 import { Icon } from "@iconify/react";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Update() {
   const { id } = useParams();
-  const [movie, setMovie] = useState([]);
 
   const {
     register,
@@ -29,12 +27,6 @@ function Update() {
       </div>;
     }
   };
-
-  useEffect(() => {
-    fetch(`https://r10d10.onrender.com/movies/${id}`).then((response) => {
-      response.json().then((json) => setMovie(json));
-    });
-  }, [id]);
 
   const navigate = useNavigate();
 
@@ -70,7 +62,6 @@ function Update() {
         className="flex h-auto relative flex-col justify-center items-center gap-4 max-w-screen-sm m-auto p-10"
       >
         <input
-          // value={movie.name}
           placeholder="Name"
           className={`rounded-lg p-2 w-full ${
             errors.name && "outline outline-2 outline-red-600"
@@ -88,7 +79,6 @@ function Update() {
             errors.year && "outline outline-2 outline-red-600"
           }`}
           placeholder="Year"
-          // value={movie.year}
           type="number"
           id="year"
           {...register("year", {
@@ -106,7 +96,6 @@ function Update() {
             errors.sequential && "outline outline-2 outline-red-600"
           }`}
           placeholder="Sequential"
-          // value={movie.sequential}
           id="sequential"
           {...register("sequential", { required: "Sequential is required" })}
         />
@@ -118,7 +107,6 @@ function Update() {
             errors.trilogy && "outline outline-2 outline-red-600"
           }`}
           placeholder="Trilogy"
-          // value={movie.trilogy}
           id="trilogy"
           {...register("trilogy", { required: "Trilogy is required" })}
         >
@@ -135,7 +123,6 @@ function Update() {
             errors.image && "outline outline-2 outline-red-600"
           }`}
           placeholder="Image URL"
-          // value={movie.image}
           id="image"
           {...register("image", { required: "Image URL is required" })}
         />
@@ -147,7 +134,6 @@ function Update() {
             errors.image2 && "outline outline-2 outline-red-600"
           }`}
           placeholder="Image 2 URL"
-          // value={movie.image2}
           id="image2"
           {...register("image2", { required: "Image 2 URL is required" })}
         />
@@ -159,7 +145,6 @@ function Update() {
             errors.synopsis && "outline outline-2 outline-red-600"
           }`}
           placeholder="Synopsis"
-          // value={movie.synopsis}
           type="text"
           id="synopsis"
           {...register("synopsis", { required: "Synopsis is required" })}
@@ -172,7 +157,6 @@ function Update() {
             errors.trailer && "outline outline-2 outline-red-600"
           }`}
           placeholder="Trailer"
-          // value={movie.trailer}
           id="trailer"
           {...register("trailer", { required: "Trailer is required" })}
         />

@@ -52,7 +52,7 @@ function Home() {
             EDIT MOVIE
           </button>
         </div>
-        <ul className="flex flex-wrap gap-10">
+        <ul className="flex flex-col md:flex-row md:flex-wrap gap-10">
           {movies.map((item) => (
             <Link key={item.id} to={item.id}>
               <li>

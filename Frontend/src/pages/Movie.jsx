@@ -49,9 +49,13 @@ function Movie() {
       <div className="opacity-70 pb-10 w-auto h-auto">
         <img src={movie.image2} alt="" />
       </div>
-      <div className="grid grid-cols-2 w-full pb-10">
+      <div className="md:grid md:grid-cols-2 w-auto h-auto pb-10">
         <div className="flex justify-center">
-          <img className="w-[480px] h-[715px]" src={movie.image} alt="" />
+          <img
+            className="md:w-auto md:h-1/2 w-auto h-1/3"
+            src={movie.image}
+            alt=""
+          />
         </div>
         <div className="flex flex-col">
           <h1 className="text-[40px] font-bold text-white">{movie.name}</h1>
@@ -71,7 +75,7 @@ function Movie() {
             {movie.synopsis}
           </h1>
           <iframe
-            className="pt-10 w-[600px] h-[400px]"
+            className="pt-10 w-auto h-auto md:w-auto md:h-1/2"
             src={movie.trailer}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
