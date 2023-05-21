@@ -11,7 +11,11 @@ function Edit() {
       method: "DELETE",
     });
 
-    if (response.status == 200) window.location.reload();
+    if (response.status == 200) {
+      window.location.reload();
+    } else {
+      alert("Cannot delete this movie");
+    }
   };
 
   const editMovie = async (id) => {
@@ -59,12 +63,6 @@ function Edit() {
                 Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Sequential
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Year
-              </th>
-              <th scope="col" className="px-6 py-3">
                 Actions
               </th>
             </tr>
@@ -74,8 +72,6 @@ function Edit() {
               <>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <td className="px-6 py-4">{movie.name}</td>
-                  <td className="px-6 py-4">{movie.sequential}</td>
-                  <td className="px-6 py-4">{movie.year}</td>
                   <td className="px-6 py-4">
                     <button
                       type="button"
