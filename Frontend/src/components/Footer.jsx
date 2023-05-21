@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <div className="">
-        <ul className="flex flex-row justify-center pb-2 md:mb-5 md:space-x-5 md:flex md:flex-row md:justify-center md:pt-10">
+        <ul className="space-x-5 flex flex-row justify-center pb-2 md:mb-5 md:space-x-5 md:flex md:flex-row md:justify-center md:pt-10">
           <li>
             <a href="https://www.facebook.com/StarWars/">
               <Icon
