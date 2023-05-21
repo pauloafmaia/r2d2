@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 Movie.propTypes = {
@@ -21,21 +21,6 @@ function Movie() {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center pt-6 pb-6">
-        <img
-          src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254"
-          alt=""
-          className="m-auto w-[180px] h-[80px] cursor-pointer"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
-      </div>
-      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
-        <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-          <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
-        </Link>
-      </div>
       <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
         <Icon
           id="back"
@@ -57,7 +42,7 @@ function Movie() {
             alt=""
           />
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col md:pr-5">
           <h1 className="md:text-[40px] md:text-left md:pb-5 text-2xl text-center font-bold text-white">
             {movie.name}
           </h1>
@@ -84,9 +69,6 @@ function Movie() {
             allowfullscreen
           ></iframe>
         </div>
-      </div>
-      <div className="w-full bg-dark-grey text-center text-white">
-        <footer>Star Wars API | R2D2 ©</footer>
       </div>
     </>
   );

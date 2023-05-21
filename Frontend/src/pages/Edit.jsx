@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Edit() {
   const navigate = useNavigate();
@@ -12,9 +12,14 @@ function Edit() {
     });
 
     if (response.status == 200) {
-      window.location.reload();
+      navigate("/edit");
     } else {
-      alert("Cannot delete this movie");
+      <div
+        className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <span className="font-medium">Sorry! Cannot delete this movie</span>
+      </div>;
     }
   };
 
@@ -30,21 +35,6 @@ function Edit() {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center pt-6 pb-6">
-        <img
-          src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254"
-          alt=""
-          className="m-auto w-[180px] h-[80px] cursor-pointer"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
-      </div>
-      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
-        <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-          <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
-        </Link>
-      </div>
       <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
         <Icon
           id="back"
@@ -93,9 +83,6 @@ function Edit() {
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="w-full bg-dark-grey text-center text-white">
-        <footer>Star Wars API | R2D2 ©</footer>
       </div>
     </>
   );

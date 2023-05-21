@@ -1,9 +1,18 @@
 import { Icon } from "@iconify/react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Update() {
   const { id } = useParams();
+
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://r10d10.onrender.com/movies/${id}`).then((response) => {
+      response.json().then((json) => setMovie(json));
+    });
+  }, [id]);
 
   const {
     register,
@@ -32,21 +41,6 @@ function Update() {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center pt-6 pb-6">
-        <img
-          src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254"
-          alt=""
-          className="m-auto w-[180px] h-[80px] cursor-pointer"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
-      </div>
-      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
-        <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-          <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
-        </Link>
-      </div>
       <div className="p-4 flex justify-start items-center flex-wrap w-full text-white">
         <Icon
           id="back"
@@ -62,7 +56,7 @@ function Update() {
         className="flex h-auto relative flex-col justify-center items-center gap-4 max-w-screen-sm m-auto p-10"
       >
         <input
-          placeholder="Name"
+          defaultValue={movie.name}
           className={`rounded-lg p-2 w-full ${
             errors.name && "outline outline-2 outline-red-600"
           }`}
@@ -78,7 +72,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.year && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Year"
+          defaultValue={movie.year}
           type="number"
           id="year"
           {...register("year", {
@@ -95,7 +89,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.sequential && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Sequential"
+          defaultValue={movie.sequential}
           id="sequential"
           {...register("sequential", { required: "Sequential is required" })}
         />
@@ -106,7 +100,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.trilogy && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Trilogy"
+          defaultValue={movie.trilogy}
           id="trilogy"
           {...register("trilogy", { required: "Trilogy is required" })}
         >
@@ -122,7 +116,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.image && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Image URL"
+          defaultValue={movie.image}
           id="image"
           {...register("image", { required: "Image URL is required" })}
         />
@@ -133,7 +127,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.image2 && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Image 2 URL"
+          defaultValue={movie.image2}
           id="image2"
           {...register("image2", { required: "Image 2 URL is required" })}
         />
@@ -144,7 +138,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.synopsis && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Synopsis"
+          defaultValue={movie.synopsis}
           type="text"
           id="synopsis"
           {...register("synopsis", { required: "Synopsis is required" })}
@@ -156,7 +150,7 @@ function Update() {
           className={`rounded-lg p-2 w-full ${
             errors.trailer && "outline outline-2 outline-red-600"
           }`}
-          placeholder="Trailer"
+          defaultValue={movie.trailer}
           id="trailer"
           {...register("trailer", { required: "Trailer is required" })}
         />
@@ -170,10 +164,6 @@ function Update() {
           UPDATE
         </button>
       </form>
-
-      <div className="w-full bg-dark-grey text-center text-white cursor-pointer">
-        <footer>Star Wars API | R2D2 ©</footer>
-      </div>
     </>
   );
 }

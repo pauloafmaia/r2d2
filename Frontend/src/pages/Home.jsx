@@ -15,21 +15,6 @@ function Home() {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center pt-6 pb-6">
-        <img
-          src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254"
-          alt=""
-          className="m-auto w-[180px] h-[80px] cursor-pointer"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
-      </div>
-      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
-        <Link to={"https://www.disneyplus.com/pt-br/brand/star-wars"}>
-          <h1>ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+</h1>
-        </Link>
-      </div>
       <div className="p-4 flex justify-center items-center flex-wrap w-full">
         <div className="w-full flex items-start p-5 justify-center">
           <button
@@ -52,7 +37,7 @@ function Home() {
             EDIT MOVIE
           </button>
         </div>
-        <ul className="flex flex-col md:flex-row md:flex-wrap gap-10">
+        <ul className="flex flex-col md:flex-row md:flex-wrap gap-10 md:justify-center">
           {movies.map((item) => (
             <Link key={item.id} to={item.id}>
               <li>
@@ -72,9 +57,6 @@ function Home() {
             </Link>
           ))}
         </ul>
-      </div>
-      <div className="w-full bg-dark-grey text-center text-white">
-        <footer>Star Wars API | R2D2 ©</footer>
       </div>
     </>
   );
