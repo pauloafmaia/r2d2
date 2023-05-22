@@ -9,7 +9,7 @@ function NavBar() {
             <ul className="justify-center items-center uppercase font-medium flex flex-col md:p-2 md:flex-row md:space-x-24 md:mt-0">
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  className="block py-2 pl-3 pr-4 text-gray-400 md:bg-transparent md:p-0 md:dark:text-gray-400 md:hover:text-white"
                   to={"/"}
                 >
                   Movies
@@ -17,7 +17,7 @@ function NavBar() {
               </li>
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  className="block py-2 pl-3 pr-4 text-gray-400 md:bg-transparent md:p-0 md:dark:text-gray-400 md:hover:text-white"
                   to={"/author"}
                 >
                   Author
@@ -25,7 +25,7 @@ function NavBar() {
               </li>
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  className="block py-2 pl-3 pr-4 text-gray-400 md:bg-transparent md:p-0 md:dark:text-gray-400 md:hover:text-white"
                   to={"/create"}
                 >
                   Create
@@ -33,7 +33,7 @@ function NavBar() {
               </li>
               <li>
                 <Link
-                  className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  className="block py-2 pl-3 pr-4 text-gray-400 md:bg-transparent md:p-0 md:dark:text-gray-400 md:hover:text-white"
                   to={"/edit"}
                 >
                   Edit
