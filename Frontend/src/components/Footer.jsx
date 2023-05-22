@@ -3,45 +3,37 @@ import { Icon } from "@iconify/react";
 function Footer() {
   return (
     <>
-      <div className="">
-        <ul className="space-x-5 flex flex-row justify-center pb-2 md:mb-5 md:space-x-5 md:flex md:flex-row md:justify-center md:pt-10">
-          <li>
-            <a href="https://www.facebook.com/StarWars/">
-              <Icon
-                className="text-gray-400 hover:text-white w-[30px] h-[30px]"
-                icon="mdi:facebook"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/starwars/">
-              <Icon
-                className="text-gray-400 hover:text-white w-[30px] h-[30px]"
-                icon="mdi:instagram"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/user/starwars">
-              <Icon
-                className="text-gray-400 hover:text-white w-[30px] h-[30px]"
-                icon="mdi:youtube"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/starwars">
-              <Icon
-                className="text-gray-400 hover:text-white w-[30px] h-[30px]"
-                icon="mdi:twitter"
-              />
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="w-full text-center text-white">
-        <footer>Star Wars API | R2D2 ©</footer>
-      </div>
+      <footer className="bg-black shadow m-4 dark:bg-black">
+        <div className="w-full flex items-center justify-center mb-5">
+          <ul className="text-white dark:text-white flex flex-row space-x-4">
+            <li>
+              <a target="blank" href="https://www.facebook.com/StarWars/">
+                <Icon icon="mdi:facebook" />
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="https://www.instagram.com/starwars/">
+                <Icon icon="mdi:instagram" />
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="https://www.youtube.com/user/starwars">
+                <Icon icon="mdi:youtube" />
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="https://twitter.com/starwars">
+                <Icon icon="mdi:twitter" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="w-full flex items-center justify-center">
+          <span className="text-sm text-white dark:text-white">
+            Star Wars API | R2D2 ©
+          </span>
+        </div>
+      </footer>
     </>
   );
 }
