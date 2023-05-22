@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function NavBar() {
   return (
     <>
@@ -6,36 +8,36 @@ function NavBar() {
           <div className="w-full md:block md:w-auto">
             <ul className="justify-center items-center uppercase font-medium flex flex-col md:p-2 md:flex-row md:space-x-24 md:mt-0">
               <li>
-                <a
-                  href="/"
+                <Link
                   className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  to={"/"}
                 >
                   Movies
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/author"
+                <Link
                   className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  to={"/author"}
                 >
                   Author
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/create"
+                <Link
                   className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  to={"/create"}
                 >
                   Create
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/edit"
+                <Link
                   className="block py-2 pl-3 pr-4 text-black md:bg-transparent md:p-0 dark:text-gray-400 md:hover:text-white"
+                  to={"/edit"}
                 >
                   Edit
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
