@@ -2,7 +2,7 @@ function Author() {
   return (
     <>
       <div className="pt-5 pb-5 md:flex md:justify-center">
-        <div className="md:flex md:text-center text-center max-w-sm flex items-center flex-col dark:bg-slate-700 pt-5 mr-3 ml-3 rounded-md">
+        <div className="text-white bg-slate-700 md:flex md:text-center text-center max-w-sm flex items-center flex-col dark:bg-slate-700 pt-5 mr-3 ml-3 rounded-md">
           <div>
             <img
               className="rounded-md"
