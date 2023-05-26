@@ -35,9 +35,4 @@ function Author() {
   );
 }
 
-<script>
-  function myFunction()
-  {window.open("https://en.wikipedia.org/wiki/George_Lucas")}
-</script>;
-
 export default Author;
