@@ -1,7 +1,7 @@
 function Streaming() {
   return (
     <>
-      <div className="p-3 w-full bg-dark-grey text-center text-white text-[15px] uppercase">
+      <div className="p-3 w-full bg-gray-600 font-bold text-center text-white text-[15px] uppercase">
         <a
           target="blank"
           href="https://www.disneyplus.com/pt-br/brand/star-wars"
