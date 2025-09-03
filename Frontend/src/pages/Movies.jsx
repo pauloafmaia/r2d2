@@ -73,7 +73,7 @@ const movies = [
   },
 ];
 
-function Movies() {
+export default function Movies() {
   return (
     <div className="p-4 flex justify-center items-center flex-wrap w-full">
       <ul className="flex flex-col md:flex-row md:flex-wrap gap-10 md:justify-center">
@@ -100,5 +100,3 @@ function Movies() {
     </div>
   );
 }
-
-export default Movies;

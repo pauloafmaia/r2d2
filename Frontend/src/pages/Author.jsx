@@ -1,4 +1,4 @@
-function Author() {
+export default function Author() {
   return (
     <>
       <div className="pt-5 pb-5 md:flex md:justify-center">
@@ -34,5 +34,3 @@ function Author() {
     </>
   );
 }
-
-export default Author;

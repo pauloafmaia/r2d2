@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Streaming from "./components/Streaming";
 import Author from "./pages/Author";
+import Characters from "./pages/Characters";
 import Movies from "./pages/Movies";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Movies />} />
         <Route path="/author" element={<Author />} />
+        <Route path="/characters" element={<Characters />} />
       </Routes>
       <Footer />
     </BrowserRouter>
