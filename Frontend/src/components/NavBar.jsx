@@ -22,6 +22,18 @@ function NavBar() {
               </li>
               <li>
                 <NavLink
+                  to="/characters"
+                  className={({ isActive }) =>
+                    `block py-2 pl-3 pr-4 text-gray-400 md:bg-transparent md:p-0 md:dark:text-gray-400 md:hover:text-white
+                        hover:border-b-2 hover:border-white transition
+                        ${isActive ? "border-b-2 border-white text-white" : ""}`
+                  }
+                >
+                  Characters
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/author"
                   className={({ isActive }) =>
                     `block py-2 pl-3 pr-4 text-gray-400 md:bg-transparent md:p-0 md:dark:text-gray-400 md:hover:text-white
